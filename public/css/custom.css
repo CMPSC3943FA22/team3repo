@@ -1,0 +1,32 @@
+.pagination {
+  padding-left: 12px;
+  padding-top: 5px;
+}
+
+.pagination > ul {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pagination > ul > li {
+  background-color: #276292;
+  color: white;
+  padding: 10px;
+}
+
+.pagination > ul > li > a {
+  color: rgb(255, 255, 255);
+}
+
+.pagination > ul > li.disabled {
+  display: none;
+}
+
+.return {
+  text-align: center;
+}
+
+.return > a {
+  color: red;
+}
