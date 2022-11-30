@@ -39,3 +39,4 @@ ALTER table products add is_featured ENUM('0', '1') DEFAULT '0' NULL;
 
 
 ALTER table products add alter_price int null;
+ALTER table products add short_description text null;
