@@ -5,7 +5,7 @@
         <a class="nav-link" href="{{ route('user.category') }}">
               <i class="nav-icon icon-speedometer"></i> Categories
           </a>
-          <a class="nav-link" href="{{ route('user.category') }}">
+          <a class="nav-link" href="{{ route('user.order') }}">
             <i class="nav-icon icon-speedometer"></i> Orders
           </a>
           <a class="nav-link" href="{{ route('user.product') }}">

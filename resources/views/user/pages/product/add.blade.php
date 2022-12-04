@@ -90,7 +90,15 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="remarks">Description</label>
+                                            <label for="remarks">Short Summary</label>
+                                            <textarea class="form-control" name="short_description" maxlength="1000" type="text" height="100%" rows="5"> {{ @$data_value->short_description }} </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="remarks">Long Description</label>
                                             <textarea class="form-control" name="description" maxlength="1000" type="text" height="100%" rows="10"> {{ @$data_value->description }} </textarea>
                                         </div>
                                     </div>

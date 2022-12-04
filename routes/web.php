@@ -12,6 +12,11 @@
 */
 
 Route::any('/', 'Frontend\IndexController@index')->name('frontend.index');
+Route::any('/item/{id}', 'Frontend\IndexController@detail')->name('frontend.detail');
+Route::get('category/{id}', 'Frontend\IndexController@product');
+Route::get('checkout/{id}', 'Frontend\IndexController@checkout')->name('checkout');
+Route::post('order', 'Frontend\IndexController@order')->name('order');
+
 
 Auth::routes();
 
@@ -33,3 +38,6 @@ Route::get('/products', 'User\ProductController@index')->name('user.product');
 Route::any('/products/add/{id}', 'User\ProductController@addEdit')->name('user.product.add');
 Route::any('/products/update/{id}', 'User\ProductController@update')->name('user.product.update');
 Route::any('/products/delete/{id}', 'User\ProductController@delete')->name('user.product.delete');
+
+
+Route::any('/admin/order', 'User\ProductController@order')->name('user.order');

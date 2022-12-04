@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
@@ -15,7 +16,7 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request) {
+    public function index() {
         $data['pageHeading'] = 'Products';
         $data['title'] = 'Products';
         $data['data'] = DB::table('products')->orderBy('updated_at', 'DESC')->simplePaginate(10);
@@ -39,9 +40,9 @@ class ProductController extends Controller
         $product->alter_price = $request->alter_price;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
+        $product->short_description = $request->short_description;
         $product->description = $request->description;
         $product->is_featured = $request->is_featured;
-
         if($request->image_1) {
             $this->validate($request, [
                 'image_1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
@@ -63,10 +64,13 @@ class ProductController extends Controller
      public function delete(Request $request, $id=0) {
         DB::table('products')->where('id', $id)->delete();
         return redirect()->route('user.product', ['page' => $request->query('page'), 'search' => $request->query('search')]);
-     }
+    }
 
- 
-
+    public function order(){
+     $data['pageHeading'] = 'Order';
+     $data['title'] = 'Order';
+     $data['orderlists'] = Order::orderBy('updated_at', 'DESC')->simplePaginate(10);;
+     return view('user.pages.order.index', $data);
+    }
 }
 
-?>
